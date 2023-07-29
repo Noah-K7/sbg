@@ -1,2 +1,85 @@
-# sbg
-video to subtitle generator
+# sbg 
+sbg.py is a (not so) simple python program that converts video into a usable .srt subtitle file. Subtitles are timed with crude silence detection and word timestamps provided by the Vost API, which is also responsible for the reading of the audio. The overall workflow of the program is as follows: Converts inputted video into a .wav, makes sure that .wav is in the correct format and converts if not, the .wav file will be read with the language model of your choosing, the result will then be thrown into a .srt file using the srt library. 
+
+The code is very crude and I did no cleaning up because I don't care lol
+
+
+## windows instructions for setup:
+
+**1. Prerequisites:**
+
+- Ensure you have python installed. You can download python from the [offical website.](https://www.python.org/downloads/)
+
+- Make sure you have pip installed. It usually comes with python, but you can check by running `pip` in your terminal or command prompt. 
+
+**2. Download the repository:**
+
+- Download this repository. Extract it in whatever folder your heart desires.
+
+**3. Navigate to program directory:**
+
+- Open your terminal or command prompt and change your working directory to the location where you extracted the repository. You can use the `cd` command to navigate or you can just go in file explorer, open the folder the repository is in, and type `cmd` in the address bar.
+
+**4. Install dependencies:**
+
+- In the terminal, run the following command to install the required dependencies listed in the `requirements.txt` file:
+
+```
+pip install -r requirements.txt
+```
+
+Doing that will automatically download and install everything neccessary for sbg to run. 
+
+**5. Run the Program:**
+
+- With all the stuff installed, you can now run sbg! Use the following command to check if it's working properly:
+
+```python sbg.py```
+
+If you get a message that looks like:
+
+```
+usage: python sbg.py <input-video-path> [options]
+error: the following arguments are required: input-video-path
+```
+
+Then you did it!! The program works and you are ready to start using the program... speaking of using it..
+
+
+## instructions for using sbg
+
+The program takes one required argument and two optional ones, along with a help screen. 
+
+Firstly, to get to the help screen, simply run:
+
+```
+python sbg.py -h
+```
+
+It'll output all the arguments, required and optional. But I'll also go over that here. 
+
+**input-video-path**
+
+- this is required, input the path to the video you want to convert to subtitles. It works with most video types, mp4, mkv, mov, and many others. 
+
+**-l or --language_model**
+
+- this is optional, input the path to the language model you want to use. A smaller language model will take much less time processing, but the results will also be less accurate. This repository comes with two language models already downloaded, a small US english model and a large US english model. If you need a more specifc model, or a model in a different language, you can download them at the [Vosk offical website.](https://alphacephei.com/vosk/models) By default the program uses the large general US english model, otherwise known as `vosk-model-en-us-0.22`.
+
+**-o or --output_srt_path**
+
+- this is optional, input the path to where you want the program to output the .srt file. By default it will output to the current working directory, i.e. the folder the program is in. 
+
+**example:**
+
+If I want to put in a video in my hdd, using the small lm, and output it to a different folder in my hdd i would do this:
+
+```
+python sbg.py "D:\videos\2023-07-28 02-49-03.mp4" -l "vosk-model-small-en-us-0.15" -o "D:\saved-subtitles"
+```
+
+The quotes are reccomended just incase there is a space or something in one of your files. Anyways thats a wrap! I hope this might be useful to you, I'm writing this at 4:00am so pardon if this is wack. 
+
+# known bugs
+
+- right now the output is completely broken, the .srt file will output to the same directory as the input file. Will figure this out soon. 
