@@ -30,7 +30,13 @@ pip install -r requirements.txt
 
 Doing that will automatically download and install everything neccessary for sbg to run. 
 
-**5. Run the Program:**
+**5. Install your desired language model**
+
+- Language models (lms) are basically what is used to scan the audio. Lms differ in what they specialize in and language. A smaller lm will lead to a faster processing time, but less accurate result. You can download them at the [Vosk offical website.](https://alphacephei.com/vosk/models) For sbg I reccomend installing the general english lm; `vosk-model-en-us-0.22` and the smaller general english lm; `vosk-model-small-en-us-0.15`
+
+- After you've downloaded your desired lm's, I reccomend unzipping them into a folder in the project directory, it will allow for easier access when inputting commands. Sbg will also try using the general english lm in it's directory as a default if you dont input anything. Though it does support typing in a full path name if you so desire. 
+
+**6. Run the Program:**
 
 - With all the stuff installed, you can now run sbg! Use the following command to check if it's working properly:
 
