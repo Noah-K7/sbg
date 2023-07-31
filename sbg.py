@@ -18,8 +18,8 @@ if __name__ == "__main__":
                         default="vosk-model-en-us-0.22", metavar="",
                         help="Path to the Vosk language model. Default: vosk-model-en-us-0.22")
     parser.add_argument("-o", "--output_srt_path", dest="output_subtitle_path",
-                        default=os.getcwd(), metavar="",
-                        help="Path to save the output subtitle file. Default: current working directory")
+                        default=None, action="store", 
+                        help="Path to save the output subtitle file. Default: directory of input file")
     args = parser.parse_args()
 
     inputVideoPath = args.input_video_path
@@ -102,7 +102,7 @@ with open(audioFile, "rb") as audio_file:
 recognizer.AcceptWaveform(audio_data)
 print("recognizing speech...")
 result = json.loads(recognizer.Result())
-
+print("Audio file successfully read!")
 # Get recognized text
 if "text" in result:
     recognized_text = result["text"]
@@ -169,11 +169,21 @@ if "text" in result:
 
 newSubtitle = srt.compose(subtitleList)
 
-videoPathComp = inputVideoPath.split('/')
+videoPathComp = inputVideoPath.split('\\')
 videoWithExtension = videoPathComp[-1].rsplit('.', 1)
 videoName = videoWithExtension[0]
 
-finalPath = os.path.join(outputSubtitlePath, f"{videoName}-subtitle.srt")
+if not args.output_subtitle_path:
+    parentDir = os.path.dirname(inputVideoPath)
+
+    finalPath = os.path.join(parentDir, f"{videoName}-subtitle.srt")
+
+else:
+    finalPath = os.path.join(outputSubtitlePath, f"{videoName}-subtitle.srt")
+
+
+
+
 
 with open (finalPath, 'w') as file:
     file.write(newSubtitle)
