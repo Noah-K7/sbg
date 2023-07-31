@@ -8,7 +8,7 @@ The code is very crude and I did no cleaning up because I don't care lol
 
 **1. Prerequisites:**
 
-- Ensure you have python installed. You can download python from the [offical website.](https://www.python.org/downloads/)
+- Ensure you have python installed. This project requires Python 3.11 or later. You can download python from the [offical website.](https://www.python.org/downloads/)
 
 - Make sure you have pip installed. It usually comes with python, but you can check by running `pip` in your terminal or command prompt. 
 
@@ -29,6 +29,14 @@ pip install -r requirements.txt
 ```
 
 Doing that will automatically download and install everything neccessary for sbg to run. 
+
+IF THIS FAILS:
+
+- Double check your python is the correct version (3.11 or later)
+
+- Download VS Build Tools at [Microsoft's Offical Website.](https://visualstudio.microsoft.com/downloads/) For me this took alot of trial and eror, but what finally worked was downloading Desktop development with C++ aswell as the Windows 10 SDK and the most recent C++ build tools for x86 and x64 windows.
+
+- the most recent .NET version may also be required, honestly do not remember sorry. 
 
 **5. Install your desired language model**
 
@@ -86,6 +94,8 @@ python sbg.py "D:\videos\2023-07-28 02-49-03.mp4" -l "vosk-model-small-en-us-0.1
 
 The quotes are reccomended just incase there is a space or something in one of your files. Anyways thats a wrap! I hope this might be useful to you, I'm writing this at 4:00am so pardon if this is wack. 
 
-# known bugs
+# the future of sbg
 
-- right now the output is completely broken, the .srt file will output to the same directory as the input file. Will figure this out soon. 
+- I am looking into a possible way to make vosk run faster, don't look forward to this, I don't know if my idea will lead to anything.
+
+- Apparently vosk also comes with (limited) punctuation models. I'm going to look further into this as it could be a great addition, but from first look it seems like a whole nother can of worms so take this with a pinch of salt.  
