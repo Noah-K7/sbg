@@ -34,7 +34,7 @@ IF THIS FAILS:
 
 - Double check your python is the correct version (3.11 or later)
 
-- Download VS Build Tools at [Microsoft's Offical Website.](https://visualstudio.microsoft.com/downloads/) For me this took alot of trial and eror, but what finally worked was downloading Desktop development with C++ aswell as the Windows 10 SDK and the most recent C++ build tools for x86 and x64 windows.
+- Download VS Build Tools at [Microsoft's Offical Website.](https://visualstudio.microsoft.com/downloads/) For me this took alot of trial and eror, but what finally worked was downloading Desktop development with C++ aswell as the Windows 10 SDK and the most recent C++ build tools for x86 and x64 windows as individual components.
 
 - the most recent .NET version may also be required, honestly do not remember sorry. 
 
