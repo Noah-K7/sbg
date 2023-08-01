@@ -78,11 +78,11 @@ It'll output all the arguments, required and optional. But I'll also go over tha
 
 **-l or --language_model**
 
-- this is optional, input the path to the language model you want to use. A smaller language model will take much less time processing, but the results will also be less accurate. This repository comes with two language models already downloaded, a small US english model and a large US english model. If you need a more specifc model, or a model in a different language, you can download them at the [Vosk offical website.](https://alphacephei.com/vosk/models) By default the program uses the large general US english model, otherwise known as `vosk-model-en-us-0.22`.
+- this is optional, input the path to the language model you want to use. A smaller language model will take much less time processing, but the results will also be less accurate. You can look at Step 5 to see where to download language models. By default sbg will try to use the large general US english model, otherwise known as `vosk-model-en-us-0.22`, so its reccomended you atleast download that, but you dont have to. 
 
 **-o or --output_srt_path**
 
-- this is optional, input the path to where you want the program to output the .srt file. By default it will output to the current working directory, i.e. the folder the program is in. 
+- this is optional, input the path to where you want the program to output the .srt file. By default it will output to the same directory the input video is in. As a bonus that'll also automatically put the subtitle on the video in vlc, who knew? 
 
 **example:**
 
